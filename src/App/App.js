@@ -10,6 +10,7 @@ import AddNote from '../AddNote/AddNote'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state = {
@@ -67,55 +68,59 @@ class App extends Component {
 
   renderNavRoutes() {
     return (
-      <>
-        {['/', '/folder/:folderId'].map(path =>
+      <ErrorBoundary>
+        <>
+          {['/', '/folder/:folderId'].map(path =>
+            <Route
+              exact
+              key={path}
+              path={path}
+              component={NoteListNav}
+            />
+          )}
           <Route
-            exact
-            key={path}
-            path={path}
-            component={NoteListNav}
+            path='/note/:noteId'
+            component={NotePageNav}
           />
-        )}
-        <Route
-          path='/note/:noteId'
-          component={NotePageNav}
-        />
-        <Route
-          path='/add-folder'
-          component={NotePageNav}
-        />
-        <Route
-          path='/add-note'
-          component={NotePageNav}
-        />
-      </>
+          <Route
+            path='/add-folder'
+            component={NotePageNav}
+          />
+          <Route
+            path='/add-note'
+            component={NotePageNav}
+          />
+        </>
+      </ErrorBoundary>
     )
   }
 
   renderMainRoutes() {
     return (
-      <>
-        {['/', '/folder/:folderId'].map(path =>
+      <ErrorBoundary>
+        <>
+          {['/', '/folder/:folderId'].map(path =>
+            <Route
+              exact
+              key={path}
+              path={path}
+              component={NoteListMain}
+            />
+          )}
           <Route
-            exact
-            key={path}
-            path={path}
-            component={NoteListMain}
+            path='/note/:noteId'
+            component={NotePageMain}
           />
-        )}
-        <Route
-          path='/note/:noteId'
-          component={NotePageMain}
-        />
-        <Route
-          path='/add-folder'
-          component={AddFolder}
-        />
-        <Route
-          path='/add-note'
-          component={AddNote}
-        />
-      </>
+          <Route
+            path='/add-folder'
+            component={AddFolder}
+          />
+          <Route
+            path='/add-note'
+            component={AddNote}
+          />
+        </>
+      </ErrorBoundary>
     )
   }
 

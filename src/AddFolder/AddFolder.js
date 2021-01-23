@@ -10,9 +10,11 @@ export default class AddFolder  extends React.Component{
     folderName: {value: ''}
 
 };
-setFolderName = folderName => {
+
+setFolderName = (folderName) => {
     this.setState({folderName: {value: folderName, }}); 
 };
+
 validateFolder = () => {
   let folderName = this.state.folderName.value;
  
@@ -31,8 +33,8 @@ static defaultProps = {
   }
 
 
-  handleSubmit = e => {
-    e.preventDefault()
+  handleSubmit = (e) => {
+    e.preventDefault();
     const folder = {
       name: e.target['folder-name'].value
     }
@@ -83,6 +85,7 @@ AddFolder.defaultProps = {
 }
 AddFolder.propTypes = {
   folderName: PropTypes.string.isRequired,
+  // An object taking on a particular shape
   props: PropTypes.shape({
     history: PropTypes.object,
   })
