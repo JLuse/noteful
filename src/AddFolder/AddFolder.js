@@ -85,7 +85,7 @@ AddFolder.defaultProps = {
 }
 AddFolder.propTypes = {
   folderName: PropTypes.string.isRequired,
-  // An object taking on a particular shape
+  // An object taking on a particular shape. How we want the object to look
   props: PropTypes.shape({
     history: PropTypes.object,
   })

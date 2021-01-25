@@ -25,7 +25,7 @@ export default class ErrorBoundary extends React.Component {
   }
 }
 
-ErrorBoundary.PropTypes = {
+ErrorBoundary.propTypes = {
   // node - We can pass anything that can be rendered, such as numbers, string, DOM elements, arrays, or fragments 
   children: PropTypes.node.isRequired
 }

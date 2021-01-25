@@ -84,17 +84,17 @@ render(){
             <NotefulForm onSubmit={this.handleSubmit}>
             <label htmlFor='note-name-input'>
                 Name
-                 
                    { <p className="error">{this.validateName()}</p>}
             </label>
             <input type='text' id='note-name-input' name='note-name' 
             value={this.state.name.value}
-            onChange={e => this.setName(e.target.value)}/>
+            onChange={e => this.setName(e.target.value)} required/>
             <label htmlFor='note-form-content'>
                 Content
                </label>  
-                <input id = 'note-form-content' name = "note-content"/>
-           
+                <input 
+                  id='note-form-content' 
+                  name='note-content' required/>
             <label htmlFor='note-form-folder'>
                 Folder
             {<p className="error">{this.validateFolder()}</p>}
