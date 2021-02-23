@@ -49,7 +49,7 @@ handleSubmit = e => {
     const newNote= {
         name: e.target['note-name'].value,
         modified: new Date(),
-        folderId: parseInt(e.target['note-folder'].value),
+        folder_id: parseInt(e.target['note-folder'].value),
         content: e.target['note-content'].value
     }
     console.log(newNote);
@@ -68,9 +68,9 @@ handleSubmit = e => {
         return res.json()
     })
     .then( data =>{
-        console.log(data.folderId)
+        console.log(data.folder_id)
         this.context.addNote(data)
-        this.props.history.push(`/folder/${data.folderId}`)})
+        this.props.history.push(`/folder/${data.folder_id}`)})
     .catch( error => {
         console.error({ error })
     })
