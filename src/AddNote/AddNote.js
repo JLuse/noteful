@@ -49,7 +49,7 @@ handleSubmit = e => {
     const newNote= {
         name: e.target['note-name'].value,
         modified: new Date(),
-        folderId: e.target['note-folder'].value,
+        folderId: parseInt(e.target['note-folder'].value),
         content: e.target['note-content'].value
     }
     fetch(`${config.API_ENDPOINT}/notes`, 
