@@ -23,11 +23,11 @@ export default class Note extends React.Component {
         'content-type': 'application/json'
       },
     })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
+      // .then(res => {
+      //   if (!res.ok)
+      //     return res.json().then(e => Promise.reject(e))
+      //   return res.json()
+      // })
       .then(() => {
         this.context.deleteNote(noteId)
         // allow parent to perform extra behaviour
@@ -40,6 +40,7 @@ export default class Note extends React.Component {
 
   render() {
     const { name, id, modified } = this.props
+    console.log()
     return (
       <div className='Note'>
         <h2 className='Note__title'>
