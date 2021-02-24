@@ -52,7 +52,7 @@ handleSubmit = e => {
         folder_id: parseInt(e.target['note-folder'].value),
         content: e.target['note-content'].value
     }
-    console.log(newNote);
+
     fetch(`${config.API_ENDPOINT}/notes`, 
     {
         method: 'POST',
